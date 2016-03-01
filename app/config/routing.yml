@@ -1,0 +1,8 @@
+a2x_my_english:
+    resource: "@A2xMyEnglishBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
