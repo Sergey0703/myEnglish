@@ -3,6 +3,4 @@ a2x_my_english:
     type:     annotation
     prefix:   /
 
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Words list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Published</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for word in words %}
+            <tr>
+                <td><a href="{{ path('_show', { 'id': word.id }) }}">{{ word.id }}</a></td>
+                <td>{{ word.title }}</td>
+                <td>{{ word.description }}</td>
+                <td>{% if word.published %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('_show', { 'id': word.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('_edit', { 'id': word.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
