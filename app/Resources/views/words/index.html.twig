@@ -2,6 +2,12 @@
 
 {% block body %}
     <h1>Words list</h1>
+    {{ form_start(search_form) }}
+    {{ form_widget(search_form) }}
+    <input type="submit" value="Search" />
+    {{ form_end(search_form) }}
+
+
 
     <table>
         <thead>

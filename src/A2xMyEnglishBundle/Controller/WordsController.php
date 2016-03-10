@@ -24,12 +24,15 @@ class WordsController extends Controller
      */
     public function indexAction()
     {
+
+        $MySearchForm = $this->createForm('A2xMyEnglishBundle\Form\SearchForm');
         $em = $this->getDoctrine()->getManager();
 
         $words = $em->getRepository('A2xMyEnglishBundle:Words')->findAll();
 
         return $this->render('words/index.html.twig', array(
             'words' => $words,
+            'search_form' => $MySearchForm ->createView(),
         ));
     }
 
@@ -50,7 +53,7 @@ class WordsController extends Controller
             $em->persist($word);
             $em->flush();
 
-            return $this->redirectToRoute('_show', array('id' => $words->getId()));
+            return $this->redirectToRoute('_show', array('id' => $word->getId()));
         }
 
         return $this->render('words/new.html.twig', array(
