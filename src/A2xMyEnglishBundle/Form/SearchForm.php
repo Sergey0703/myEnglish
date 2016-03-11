@@ -15,7 +15,7 @@ class SearchForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $option)
     {
         $builder
-            ->add('titleSearch')
+            ->add('id')
 
         ;
     }

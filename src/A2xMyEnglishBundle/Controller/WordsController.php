@@ -20,12 +20,31 @@ class WordsController extends Controller
      * Lists all Words entities.
      *
      * @Route("/", name="_index")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
 
         $MySearchForm = $this->createForm('A2xMyEnglishBundle\Form\SearchForm');
+        //$MySearchForm->handleRequest($request);
+        print_r ( $request->request->get('search_form'));
+echo '1';
+        //if ($MySearchForm->isSubmitted() && $MySearchForm->isValid()) {
+        if ($request->request->get('search_form')){
+            $searchData=$request->request->get('search_form');
+            echo $searchData['id'];
+            $searchId=$searchData['id'];
+            return $this->redirectToRoute('_show', array('id' => $searchId));
+    }
+
+
+        //    $em = $this->getDoctrine()->getManager();
+        //    $em->getRepository('A2xMyEnglishBundle:Words')->find(2);
+        //    $em->persist($word);
+          //  $em->flush();
+    //            return $this->redirectToRoute('_show', array('id' => $word->getId()));
+        //}
+
         $em = $this->getDoctrine()->getManager();
 
         $words = $em->getRepository('A2xMyEnglishBundle:Words')->findAll();

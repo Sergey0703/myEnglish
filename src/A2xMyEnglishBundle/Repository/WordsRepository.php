@@ -10,4 +10,8 @@ namespace A2xMyEnglishBundle\Repository;
  */
 class WordsRepository extends \Doctrine\ORM\EntityRepository
 {
+public function getIdSearch()
+{
+
+}
 }
