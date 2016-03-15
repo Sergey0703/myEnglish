@@ -3,4 +3,5 @@ a2x_my_english:
     type:     annotation
     prefix:   /
 
-
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

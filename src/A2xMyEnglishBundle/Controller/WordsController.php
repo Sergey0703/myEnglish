@@ -84,7 +84,11 @@ echo '1';
     /**
      * Finds and displays a Words entity.
      *
-     * @Route("/{id}", name="_show")
+     * @Route("/{id}", name="_show",
+     *    requirements={
+    "id": "\d+"
+     * }
+     * )
      * @Method("GET")
      */
     public function showAction(Words $word)
